@@ -284,6 +284,8 @@ namespace CajeroHDP1
                     else if (opcion == 2)
                     {
 
+                        Console.WriteLine("Cancelando transaccion...");
+
                     }
 
                 }
