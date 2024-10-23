@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CajeroHDP1
 {
@@ -11,6 +12,7 @@ namespace CajeroHDP1
         private string clave;
         private long saldo;
         private List<string> historial = new List<string>();
+        private long numeroCuenta;
 
         public Usuario(int identificacion, string nombre, string correo, string clave, long saldo)
         {
@@ -19,6 +21,12 @@ namespace CajeroHDP1
             this.Correo = correo;
             this.Clave = clave;
             this.Saldo = saldo;
+            this.numeroCuenta = GenerarCuenta();
+        }
+
+        private long GenerarCuenta()
+        {
+            return 0;
         }
 
         public int Identificacion { get => identificacion; set => identificacion = value; }
@@ -27,6 +35,6 @@ namespace CajeroHDP1
         public string Clave { get => clave; set => clave = value; }
         public long Saldo { get => saldo; set => saldo = value; }
         public List<string> Historial { get => historial; set => historial = value; }
-
+        public long NumeroCuenta { get => numeroCuenta;}
     }
 }
