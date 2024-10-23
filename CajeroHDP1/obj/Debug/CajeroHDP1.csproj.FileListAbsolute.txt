@@ -1,0 +1,14 @@
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\bin\Debug\CajeroHDP1.exe.config
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\bin\Debug\CajeroHDP1.exe
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\bin\Debug\CajeroHDP1.pdb
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\obj\Debug\CajeroHDP1.exe
+C:\Users\User\Documents\Visual Studio 2022\CSharp\claseMiercolesViernes\Csharp\CajeroHDP1\obj\Debug\CajeroHDP1.pdb
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\bin\Debug\CajeroHDP1.exe.config
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\bin\Debug\CajeroHDP1.exe
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\bin\Debug\CajeroHDP1.pdb
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.AssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.exe
+C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.pdb
