@@ -137,10 +137,13 @@ namespace CajeroHDP1
             Console.Write("Saldo inicial: ");
             saldo = long.Parse(Console.ReadLine());
 
-            // Agregar el nuevo usuario
-            usuarios.Add(new Usuario(identificacion, nombre, correo, clave, saldo));
+            Usuario nuevoUsuario = new Usuario(identificacion, nombre, correo, clave, saldo);
 
-            Console.WriteLine("Registro exitoso.");
+            // Agregar el nuevo usuario
+            usuarios.Add(nuevoUsuario);
+
+            Console.WriteLine("Registro exitoso." +
+               $"\nTu numero de cuenta es: {nuevoUsuario.NumeroCuenta}");
             MenuSesion(usuarios);
         }
 
@@ -151,7 +154,8 @@ namespace CajeroHDP1
             while (opcion != 5)
             {
 
-                Console.WriteLine("1. Retirar" +
+                Console.WriteLine($"Numero de tu cuenta: {usuario.NumeroCuenta}" +
+                    "\n1. Retirar" +
                     "\n2. Consignar" +
                     "\n3. Consultar saldo" +
                     "\n4. Consultar Movimientos" +
@@ -235,15 +239,15 @@ namespace CajeroHDP1
             int dinero = Convert.ToInt32(Console.ReadLine());
 
             Console.Write("Cuenta destino (identificacion): ");
-            int identificacion = Convert.ToInt32(Console.ReadLine());
+            int numeroCuenta = Convert.ToInt32(Console.ReadLine());
 
 
             foreach (Usuario usuario_ in usuarios)
             {
-                if (usuario_.Identificacion == identificacion)
+                if (usuario_.NumeroCuenta == numeroCuenta)
                 {
 
-                    Console.WriteLine($"Vas a transferir {dinero:C} a la cuenta {identificacion}" +
+                    Console.WriteLine($"Vas a transferir {dinero:C} a la cuenta {numeroCuenta}" +
                     $"\n Estas seguro? 1. Si 2. No");
                     opcion = Convert.ToInt32(Console.ReadLine());
 
@@ -262,7 +266,7 @@ namespace CajeroHDP1
                         {
                             usuario.Saldo -= dinero;
 
-                            usuario.Historial.Add($"Trasferencia a la cuenta {identificacion} de -{dinero:c}");
+                            usuario.Historial.Add($"Trasferencia a la cuenta {numeroCuenta} de -{dinero:c}");
 
                             usuarioReceptor = usuario_;
 

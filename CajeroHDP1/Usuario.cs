@@ -12,7 +12,7 @@ namespace CajeroHDP1
         private string clave;
         private long saldo;
         private List<string> historial = new List<string>();
-        private long numeroCuenta;
+        private string numeroCuenta;
 
         public Usuario(int identificacion, string nombre, string correo, string clave, long saldo)
         {
@@ -24,9 +24,9 @@ namespace CajeroHDP1
             this.numeroCuenta = GenerarCuenta();
         }
 
-        private long GenerarCuenta()
+        private string GenerarCuenta()
         {
-            return 0;
+            return "";
         }
 
         public int Identificacion { get => identificacion; set => identificacion = value; }
