@@ -1,24 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\cajerohdp1\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|solutionrelative:cajerohdp1\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|c:\\users\\user\\desktop\\cajerohdp1-master\\cajerohdp1-master\\cajerohdp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|solutionrelative:cajerohdp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|c:\\users\\user\\documents\\visual studio 2022\\csharp\\cajerohdp1\\cajerohdp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|solutionrelative:cajerohdp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\cajerohdp1\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EA4D3CB7-E851-4814-8300-0884605BBD21}|CajeroHDP1\\CajeroHDP1.csproj|solutionrelative:cajerohdp1\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
-      "VerticalTabListWidth": 256,
+      "VerticalTabListWidth": 128,
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,26 +34,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Usuario.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\CajeroHDP1\\Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\CajeroHDP1\\Usuario.cs",
               "RelativeDocumentMoniker": "CajeroHDP1\\Usuario.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\CajeroHDP1\\Usuario.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\CajeroHDP1\\Usuario.cs",
               "RelativeToolTip": "CajeroHDP1\\Usuario.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAzwAsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T18:37:22.018Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\CajeroHDP1\\Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\CajeroHDP1\\Program.cs",
               "RelativeDocumentMoniker": "CajeroHDP1\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\Documents\\Visual Studio 2022\\CSharp\\CajeroHDP1\\CajeroHDP1\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Desktop\\CajeroHDP1-master\\CajeroHDP1-master\\CajeroHDP1\\Program.cs",
               "RelativeToolTip": "CajeroHDP1\\Program.cs",
-              "ViewState": "AgIAAOgAAAAAAAAAAADwv/YAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-23T18:33:40.814Z",
               "EditorCaption": ""

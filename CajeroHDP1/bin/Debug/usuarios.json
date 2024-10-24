@@ -1,0 +1,43 @@
+[
+  {
+    "Identificacion": 1025883280,
+    "Nombre": "yeison correa",
+    "Correo": "yeisoncv10v@gmail.com",
+    "Clave": "123456",
+    "Saldo": 10000000,
+    "Historial": [],
+    "NumeroCuenta": "00368846012"
+  },
+  {
+    "Identificacion": 12345678,
+    "Nombre": "juan camilo",
+    "Correo": "juanca@gmail.com",
+    "Clave": "123456",
+    "Saldo": 40000,
+    "Historial": [],
+    "NumeroCuenta": "05372358254"
+  },
+  {
+    "Identificacion": 99999,
+    "Nombre": "junito",
+    "Correo": "a@gmail.com",
+    "Clave": "123",
+    "Saldo": 6,
+    "Historial": [
+      "23/10/2024 12:00:00 a. m. Consignación de +$ 5,00"
+    ],
+    "NumeroCuenta": "01004343036"
+  },
+  {
+    "Identificacion": 6758392,
+    "Nombre": "Prueba",
+    "Correo": "h@gmial.com",
+    "Clave": "123321",
+    "Saldo": 99985,
+    "Historial": [
+      "23/10/2024 12:00:00 a. m. Retiro de -$ 10,00",
+      "23/10/2024 12:00:00 a. m. Transferencia a la cuenta 01004343036 de -$ 5,00"
+    ],
+    "NumeroCuenta": "12526154183"
+  }
+]

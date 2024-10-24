@@ -1,97 +1,108 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using Newtonsoft.Json;
 
 namespace CajeroHDP1
 {
     internal class Program
     {
+        static string filePath = "usuarios.json";
+        static List<Usuario> usuarios = new List<Usuario>();
+
         static void Main(string[] args)
         {
-
-            List<Usuario> usuarios = new List<Usuario>();
-
-            Usuario usuario1 = new Usuario(1867463, "pepe",
-                    "pepe54@gmail.com", "pepe546713", 3000000);
-
-            Usuario usuario2 = new Usuario(389759873, "Sofia",
-                    "Sofia76@gmail.com", "peluche4563", 10000);
-
-
-            usuarios.Add(usuario1);
-            usuarios.Add(usuario2);
-
-            MenuSesion(usuarios);
-
-
+            // Cargar usuarios existentes desde el archivo JSON (si existe)
+            CargarUsuarios();
+            MenuSesion();
             Console.ReadKey();
-
         }
 
-        //Inicio de sesion y registro
-        private static void MenuSesion(List<Usuario> usuarios)
+        // Menú de inicio de sesión y registro
+        private static void MenuSesion()
         {
             int opcion = 0;
 
             while (opcion != 3)
             {
-
-                Console.WriteLine("1. Iniciar sesion" +
+                Console.WriteLine("1. Iniciar sesión" +
                     "\n2. Registrarse" +
-                    "\n3. salir");
+                    "\n3. Salir");
 
                 opcion = Convert.ToInt32(Console.ReadLine());
 
                 switch (opcion)
                 {
                     case 1:
-                        iniciarSesion(usuarios);
+                        IniciarSesion();
                         break;
 
                     case 2:
-                        Registrarse(usuarios);
+                        Registrarse();
                         break;
 
                     case 3:
-                        Console.WriteLine("Saliendo del programa");
+                        GuardarUsuarios();  // Guardar cambios antes de salir
+                        Console.WriteLine("Saliendo del programa...");
                         break;
 
                     default:
-                        Console.WriteLine("Esa opción no existe");
+                        Console.WriteLine("Esa opción no existe.");
                         break;
                 }
             }
         }
 
-        // Iniciar sesion
-        private static void iniciarSesion(List<Usuario> usuarios)
+        // Cargar usuarios desde el archivo JSON
+        private static void CargarUsuarios()
+        {
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                usuarios = JsonConvert.DeserializeObject<List<Usuario>>(json) ?? new List<Usuario>();
+            }
+            else
+            {
+                usuarios = new List<Usuario>();  // Si no existe, creamos una lista vacía
+            }
+        }
+
+        // Guardar usuarios en el archivo JSON
+        private static void GuardarUsuarios()
+        {
+            string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
+            File.WriteAllText(filePath, json);
+            Console.WriteLine("Los datos han sido guardados correctamente.");
+        }
+
+        // Iniciar sesión
+        private static void IniciarSesion()
         {
             int identificacion;
             string contrasenha;
 
-            Console.Write("Identificacion: ");
+            Console.Write("Identificación: ");
             identificacion = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Contrasenha: ");
+            Console.Write("Contraseña: ");
             contrasenha = Console.ReadLine();
 
-            foreach (Usuario usuario in usuarios)
-            {
-                if (usuario.Identificacion == identificacion && usuario.Clave == contrasenha)
-                {
-                    Console.WriteLine("Usuario validado");
-                    Menu(usuario, usuarios);
-                }
-            }
+            var usuario = usuarios.FirstOrDefault(u => u.Identificacion == identificacion && u.Clave == contrasenha);
 
-            Console.WriteLine("Usuario invalido, verifique que ingresaste bien los datos o " +
-    "en caso de que no estes registrado te invitamos a que te registres.");
-            MenuSesion(usuarios);
+            if (usuario != null)
+            {
+                Console.WriteLine("Usuario validado.");
+                Menu(usuario);
+            }
+            else
+            {
+                Console.WriteLine("Usuario inválido. Verifica los datos o regístrate si no tienes cuenta.");
+            }
         }
 
-
-        // Registro
-        private static void Registrarse(List<Usuario> usuarios)
+        // Registro de usuario
+        private static void Registrarse()
         {
             int identificacion;
             string nombre, correo, clave, claveConfirmacion;
@@ -137,29 +148,26 @@ namespace CajeroHDP1
             Console.Write("Saldo inicial: ");
             saldo = long.Parse(Console.ReadLine());
 
-            Usuario nuevoUsuario = new Usuario(identificacion, nombre, correo, clave, saldo);
+            // Agregar el nuevo usuario a la lista
+            usuarios.Add(new Usuario(identificacion, nombre, correo, clave, saldo));
+            Console.WriteLine("Registro exitoso.");
 
-            // Agregar el nuevo usuario
-            usuarios.Add(nuevoUsuario);
-
-            Console.WriteLine("Registro exitoso." +
-               $"\nTu numero de cuenta es: {nuevoUsuario.NumeroCuenta}");
-            MenuSesion(usuarios);
+            // Guardar cambios en el archivo JSON
+            GuardarUsuarios();
         }
 
-        // Menu principal
-        private static void Menu(Usuario usuario, List<Usuario> usuarios)
+        // Menú principal
+        private static void Menu(Usuario usuario)
         {
             int opcion = 0;
             while (opcion != 5)
             {
-
-                Console.WriteLine($"Numero de tu cuenta: {usuario.NumeroCuenta}" +
+                Console.WriteLine($"Número de tu cuenta: {usuario.NumeroCuenta}" +
                     "\n1. Retirar" +
                     "\n2. Consignar" +
                     "\n3. Consultar saldo" +
                     "\n4. Consultar Movimientos" +
-                    "\n5. Cerrar sesion");
+                    "\n5. Cerrar sesión");
 
                 opcion = Convert.ToInt32(Console.ReadLine());
 
@@ -170,7 +178,7 @@ namespace CajeroHDP1
                         break;
 
                     case 2:
-                        Consignar(usuario, usuarios);
+                        Consignar(usuario);
                         break;
 
                     case 3:
@@ -182,17 +190,14 @@ namespace CajeroHDP1
                         break;
 
                     case 5:
-                        MenuSesion(usuarios);
+                        Console.WriteLine("Cerrando sesión...");
                         break;
 
                     default:
-                        Console.WriteLine("Esa opción no existe");
+                        Console.WriteLine("Esa opción no existe.");
                         break;
                 }
-
-
             }
-
         }
 
         // Consultar movimientos
@@ -202,102 +207,71 @@ namespace CajeroHDP1
 
             if (historial.Count != 0)
             {
-
                 foreach (string historia in historial)
                 {
-
                     Console.WriteLine(historia);
-
                 }
-
             }
             else
             {
-
-                Console.WriteLine("No hay movimientos por el momento");
-
+                Console.WriteLine("No hay movimientos por el momento.");
             }
-
-
-
         }
 
-        //Consultar saldo
+        // Consultar saldo
         private static void ConsultarSaldo(Usuario usuario)
         {
             Console.WriteLine($"Actualmente tienes {usuario.Saldo:C}");
         }
 
         // Consignar a otra cuenta
-        private static void Consignar(Usuario usuario, List<Usuario> usuarios)
+        private static void Consignar(Usuario usuario)
         {
-            Usuario usuarioReceptor;
-
-            int opcion;
-
             Console.Write("Cantidad de dinero a enviar: ");
             int dinero = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Cuenta destino (identificacion): ");
-            int numeroCuenta = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Número de cuenta destino: ");
+            string numeroCuenta = Console.ReadLine();
 
+            var usuarioReceptor = usuarios.FirstOrDefault(u => u.NumeroCuenta == numeroCuenta);
 
-            foreach (Usuario usuario_ in usuarios)
+            if (usuarioReceptor != null)
             {
-                if (usuario_.NumeroCuenta == numeroCuenta)
+                Console.WriteLine($"Vas a transferir {dinero:C} a la cuenta {numeroCuenta}. ¿Estás seguro? (1. Sí, 2. No)");
+                int opcion = Convert.ToInt32(Console.ReadLine());
+
+                if (opcion == 1)
                 {
-
-                    Console.WriteLine($"Vas a transferir {dinero:C} a la cuenta {numeroCuenta}" +
-                    $"\n Estas seguro? 1. Si 2. No");
-                    opcion = Convert.ToInt32(Console.ReadLine());
-
-                    while (opcion != 1 && opcion != 2)
+                    if (usuario.Saldo >= dinero)
                     {
+                        usuario.Saldo -= dinero;
+                        usuario.Historial.Add($"{DateTime.Today} Transferencia a la cuenta {numeroCuenta} de -{dinero:C}");
 
-                        Console.WriteLine($"Opcion no valida." +
-                            $"\n1. Si 2. No");
-                        opcion = Convert.ToInt32(Console.ReadLine());
+                        usuarioReceptor.Saldo += dinero;
+                        usuarioReceptor.Historial.Add($"{DateTime.Today} Consignación de +{dinero:C}");
 
+                        Console.WriteLine("La transferencia se realizó con éxito.");
+
+                        // Guardar cambios en el archivo JSON
+                        GuardarUsuarios();
                     }
-                    if (opcion == 1)
+                    else
                     {
-
-                        if (usuario.Saldo >= dinero)
-                        {
-                            usuario.Saldo -= dinero;
-
-                            usuario.Historial.Add($"Trasferencia a la cuenta {numeroCuenta} de -{dinero:c}");
-
-                            usuarioReceptor = usuario_;
-
-                            usuarioReceptor.Saldo += dinero;
-
-                            usuarioReceptor.Historial.Add($"Consignacion de +{dinero:c}");
-
-                            Console.WriteLine("La transferencia se realizo con exito");
-                        }
-                        else
-                        {
-
-                            Console.WriteLine($"Saldo insuficiente, Tu saldo es {usuario.Saldo}");
-
-                        }
-
-
+                        Console.WriteLine($"Saldo insuficiente. Tu saldo es {usuario.Saldo:C}");
                     }
-                    else if (opcion == 2)
-                    {
-
-                        Console.WriteLine("Cancelando transaccion...");
-
-                    }
-
+                }
+                else
+                {
+                    Console.WriteLine("Cancelando transacción...");
                 }
             }
-
+            else
+            {
+                Console.WriteLine("La cuenta de destino no existe.");
+            }
         }
 
-        // Retirar
+        // Retirar dinero
         private static void Retirar(Usuario usuario)
         {
             Console.Write("Valor a retirar: ");
@@ -305,20 +279,19 @@ namespace CajeroHDP1
 
             if (usuario.Saldo >= valorRetirar)
             {
-
                 usuario.Saldo -= valorRetirar;
-
-                usuario.Historial.Add($"Retiro de -{valorRetirar:C}");
+                usuario.Historial.Add($"{DateTime.Today} Retiro de -{valorRetirar:C}");
                 Console.WriteLine($"Saldo actual: {usuario.Saldo:C}");
 
+                // Guardar cambios en el archivo JSON
+                GuardarUsuarios();
             }
             else
             {
-
-                Console.WriteLine($"Saldo insuficiente, Tu saldo es {usuario.Saldo:C}");
-
+                Console.WriteLine($"Saldo insuficiente. Tu saldo es {usuario.Saldo:C}");
             }
         }
     }
 }
+
 

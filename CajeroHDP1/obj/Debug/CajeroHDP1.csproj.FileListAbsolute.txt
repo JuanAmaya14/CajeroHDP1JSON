@@ -12,3 +12,23 @@ C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debu
 C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.CoreCompileInputs.cache
 C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.exe
 C:\Users\User\Documents\Visual Studio 2022\CSharp\CajeroHDP1\CajeroHDP1\obj\Debug\CajeroHDP1.pdb
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.AssemblyReference.cache
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.CoreCompileInputs.cache
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.exe
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.pdb
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.exe.config
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.exe
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.pdb
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\yeiso\Downloads\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.Up2Date
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.exe.config
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.exe
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\CajeroHDP1.pdb
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.csproj.Up2Date
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.exe
+C:\Users\User\Desktop\CajeroHDP1-master\CajeroHDP1-master\CajeroHDP1\obj\Debug\CajeroHDP1.pdb

@@ -26,7 +26,13 @@ namespace CajeroHDP1
 
         private string GenerarCuenta()
         {
-            return "";
+            var random = new Random();
+            string numeroCuenta = "";
+            for (int i = 0; i <= 10; i++)
+            {
+                numeroCuenta+= random.Next(0, 9);
+            }
+            return numeroCuenta;
         }
 
         public int Identificacion { get => identificacion; set => identificacion = value; }
@@ -35,6 +41,6 @@ namespace CajeroHDP1
         public string Clave { get => clave; set => clave = value; }
         public long Saldo { get => saldo; set => saldo = value; }
         public List<string> Historial { get => historial; set => historial = value; }
-        public long NumeroCuenta { get => numeroCuenta;}
+        public string NumeroCuenta { get => numeroCuenta;}
     }
 }
