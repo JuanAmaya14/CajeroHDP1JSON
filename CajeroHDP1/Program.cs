@@ -8,6 +8,9 @@ namespace CajeroHDP1
 {
     internal class Program
     {
+
+        // Convierte la hora UTC a la hora local
+        static DateTime localTime = TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, TimeZoneInfo.Local);
         static string filePath = "usuarios.json";
         static List<Usuario> usuarios = new List<Usuario>();
 
@@ -26,10 +29,17 @@ namespace CajeroHDP1
 
             while (opcion != 3)
             {
-                Console.WriteLine("1. Iniciar sesión" +
-                    "\n2. Registrarse" +
-                    "\n3. Salir");
-
+                Console.WriteLine(" ╔════════════════════════════════════╗");
+                Console.WriteLine(" ║             BANCOHDP1              ║");
+                Console.WriteLine(" ║════════════════════════════════════║");
+                Console.WriteLine(" ║              OPCIONES              ║");
+                Console.WriteLine(" ║ (Digita el numero correspondiente) ║");
+                Console.WriteLine(" ║════════════════════════════════════║");
+                Console.WriteLine(" ║         1. Iniciar Sesion          ║");
+                Console.WriteLine(" ║         2. Registrarse             ║");
+                Console.WriteLine(" ║         3. Salir                   ║");
+                Console.WriteLine(" ╚════════════════════════════════════╝");
+                Console.Write(" ═>");
                 opcion = Convert.ToInt32(Console.ReadLine());
 
                 switch (opcion)
@@ -44,11 +54,15 @@ namespace CajeroHDP1
 
                     case 3:
                         GuardarUsuarios();  // Guardar cambios antes de salir
-                        Console.WriteLine("Saliendo del programa...");
+                        Console.WriteLine(" ╔═══════════════════════╗");
+                        Console.WriteLine(" ║ Saliendo del programa ║");
+                        Console.WriteLine(" ╚═══════════════════════╝");
                         break;
 
                     default:
-                        Console.WriteLine("Esa opción no existe.");
+                        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+                        Console.WriteLine(" ║ Esta opcion no existe.Digite nuevamente  ║");
+                        Console.WriteLine(" ╚══════════════════════════════════════════╝");
                         break;
                 }
             }
@@ -73,7 +87,9 @@ namespace CajeroHDP1
         {
             string json = JsonConvert.SerializeObject(usuarios, Formatting.Indented);
             File.WriteAllText(filePath, json);
-            Console.WriteLine("Los datos han sido guardados correctamente.");
+            Console.WriteLine(" ╔═══════════════════════════════════════════════╗");
+            Console.WriteLine(" ║  Los datos han sido guardados correctamente.  ║");
+            Console.WriteLine(" ╚═══════════════════════════════════════════════╝");
         }
 
         // Iniciar sesión
@@ -82,22 +98,33 @@ namespace CajeroHDP1
             int identificacion;
             string contrasenha;
 
-            Console.Write("Identificación: ");
+            Console.WriteLine(" ╔═══════════════════════╗");
+            Console.WriteLine(" ║     IDENTIFICACION:   ║");
+            Console.WriteLine(" ╚═══════════════════════╝");
+            Console.Write(" ═>");
             identificacion = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Contraseña: ");
+            Console.WriteLine(" ╔═══════════════════════╗");
+            Console.WriteLine(" ║      CONTRASEÑA:      ║");
+            Console.WriteLine(" ╚═══════════════════════╝");
+            Console.Write(" ═>");
             contrasenha = Console.ReadLine();
 
             var usuario = usuarios.FirstOrDefault(u => u.Identificacion == identificacion && u.Clave == contrasenha);
 
             if (usuario != null)
             {
-                Console.WriteLine("Usuario validado.");
+                Console.WriteLine(" ╔═══════════════════════╗");
+                Console.WriteLine(" ║   Usuario validado.   ║");
+                Console.WriteLine(" ╚═══════════════════════╝");
                 Menu(usuario);
             }
             else
             {
-                Console.WriteLine("Usuario inválido. Verifica los datos o regístrate si no tienes cuenta.");
+                Console.WriteLine(" ╔═══════════════════════════════════════════════════════════════════════════╗");
+                Console.WriteLine(" ║        Usuario invalido, verifique que ingresaste bien los datos          ║");
+                Console.WriteLine(" ║     o en caso de que no estes registrado te invitamos a que te registres  ║");
+                Console.WriteLine(" ╚═══════════════════════════════════════════════════════════════════════════╝");
             }
         }
 
@@ -108,49 +135,85 @@ namespace CajeroHDP1
             string nombre, correo, clave, claveConfirmacion;
             long saldo;
 
-            Console.Write("Identificación: ");
+            Console.WriteLine(" ╔═══════════════════════╗");
+            Console.WriteLine(" ║     IDENTIFICACION:   ║");
+            Console.WriteLine(" ╚═══════════════════════╝");
+            Console.Write(" ═>");
             identificacion = Convert.ToInt32(Console.ReadLine());
 
             // Verificar si la identificación ya existe
             while (usuarios.Any(u => u.Identificacion == identificacion))
             {
-                Console.WriteLine("Esta identificación ya existe. Intenta con otra.");
-                Console.Write("Identificación: ");
+                Console.WriteLine(" ╔═══════════════════════════════════════════════════════╗");
+                Console.WriteLine(" ║     Esta identificacion ya existe. Intenta con otra   ║");
+                Console.WriteLine(" ╚═══════════════════════════════════════════════════════╝");
+                Console.WriteLine(" ╔═══════════════════════╗");
+                Console.WriteLine(" ║     IDENTIFICACION:   ║");
+                Console.WriteLine(" ╚═══════════════════════╝");
+                Console.Write(" ═>");
                 identificacion = Convert.ToInt32(Console.ReadLine());
             }
 
-            Console.Write("Nombre: ");
+            Console.WriteLine(" ╔════════════════╗");
+            Console.WriteLine(" ║     NOMBRE:    ║");
+            Console.WriteLine(" ╚════════════════╝");
+            Console.Write(" ═>");
             nombre = Console.ReadLine();
 
-            Console.Write("Correo: ");
+            Console.WriteLine(" ╔════════════════╗");
+            Console.WriteLine(" ║     CORREO:    ║");
+            Console.WriteLine(" ╚════════════════╝");
+            Console.Write(" ═>");
             correo = Console.ReadLine();
 
             // Verificar si el correo ya existe
             while (usuarios.Any(u => u.Correo == correo))
             {
-                Console.WriteLine("Este correo ya está registrado. Intenta con otro.");
-                Console.Write("Correo: ");
+                Console.WriteLine(" ╔═══════════════════════════════════════════════════════╗");
+                Console.WriteLine(" ║   Este correo ya esta registrado. Intente con otro    ║");
+                Console.WriteLine(" ╚═══════════════════════════════════════════════════════╝");
+                Console.WriteLine(" ╔════════════════╗");
+                Console.WriteLine(" ║     CORREO:    ║");
+                Console.WriteLine(" ╚════════════════╝");
+                Console.Write(" ═>");
                 correo = Console.ReadLine();
             }
 
             // Validar contraseña y confirmación
             do
             {
-                Console.Write("Contraseña: ");
+                Console.WriteLine(" ╔═══════════════════════╗");
+                Console.WriteLine(" ║      CONTRASEÑA:      ║");
+                Console.WriteLine(" ╚═══════════════════════╝");
+                Console.Write(" ═>");
                 clave = Console.ReadLine();
-                Console.Write("Confirmar contraseña: ");
+
+                Console.WriteLine(" ╔═══════════════════════╗");
+                Console.WriteLine(" ║ CONFIRMAR CONTRASEÑA  ║");
+                Console.WriteLine(" ╚═══════════════════════╝");
+                Console.Write(" ═>");
                 claveConfirmacion = Console.ReadLine();
 
                 if (clave != claveConfirmacion)
-                    Console.WriteLine("Las contraseñas no coinciden.");
+                {
+                    Console.WriteLine(" ╔══════════════════════════════════════════════════╗");
+                    Console.WriteLine(" ║ LAS CONTRASEÑAS NO COINCIDEN. DIGITE NUEVAMENTE  ║");
+                    Console.WriteLine(" ╚══════════════════════════════════════════════════╝");
+                }
+
             } while (clave != claveConfirmacion);
 
-            Console.Write("Saldo inicial: ");
+            Console.WriteLine(" ╔══════════════════╗");
+            Console.WriteLine(" ║   SALDO INICIAL  ║");
+            Console.WriteLine(" ╚══════════════════╝");
+            Console.Write(" ═>");
             saldo = long.Parse(Console.ReadLine());
 
             // Agregar el nuevo usuario a la lista
             usuarios.Add(new Usuario(identificacion, nombre, correo, clave, saldo));
-            Console.WriteLine("Registro exitoso.");
+            Console.WriteLine(" ╔════════════════════╗");
+            Console.WriteLine(" ║  REGISTRO EXITOSO  ║");
+            Console.WriteLine(" ╚════════════════════╝");
 
             // Guardar cambios en el archivo JSON
             GuardarUsuarios();
@@ -162,12 +225,19 @@ namespace CajeroHDP1
             int opcion = 0;
             while (opcion != 5)
             {
-                Console.WriteLine($"Número de tu cuenta: {usuario.NumeroCuenta}" +
-                    "\n1. Retirar" +
-                    "\n2. Consignar" +
-                    "\n3. Consultar saldo" +
-                    "\n4. Consultar Movimientos" +
-                    "\n5. Cerrar sesión");
+                Console.WriteLine(" ╔════════════════════════════════════╗");
+                Console.WriteLine(" ║             BANCOHDP1              ║");
+                Console.WriteLine(" ║════════════════════════════════════║");
+                Console.WriteLine(" ║         Número de tu cuenta:       ║");
+                Console.WriteLine($"         {usuario.NumeroCuenta}       ");
+                Console.WriteLine(" ║════════════════════════════════════║");
+                Console.WriteLine(" ║         1. Retirar                 ║");
+                Console.WriteLine(" ║         2. Consignar               ║");
+                Console.WriteLine(" ║         3. Consultar saldo         ║");
+                Console.WriteLine(" ║         4. Consultar Movimientos   ║");
+                Console.WriteLine(" ║         5. Cerrar sesion           ║");
+                Console.WriteLine(" ╚════════════════════════════════════╝");
+                Console.Write(" ═>");
 
                 opcion = Convert.ToInt32(Console.ReadLine());
 
@@ -190,11 +260,15 @@ namespace CajeroHDP1
                         break;
 
                     case 5:
-                        Console.WriteLine("Cerrando sesión...");
+                        Console.WriteLine(" ╔═══════════════════════╗");
+                        Console.WriteLine(" ║ Cerrando sesión...    ║");
+                        Console.WriteLine(" ╚═══════════════════════╝");
                         break;
 
                     default:
-                        Console.WriteLine("Esa opción no existe.");
+                        Console.WriteLine(" ╔═══════════════════════╗");
+                        Console.WriteLine(" ║ ESTA OPCION NO EXISTE ║");
+                        Console.WriteLine(" ╚═══════════════════════╝");
                         break;
                 }
             }
@@ -209,35 +283,55 @@ namespace CajeroHDP1
             {
                 foreach (string historia in historial)
                 {
-                    Console.WriteLine(historia);
+                    Console.WriteLine(" ╔═════════════════════════════════════════════════════════════════════╗");
+                    Console.WriteLine($"                             {historia}                                ");
+                    Console.WriteLine(" ╚═════════════════════════════════════════════════════════════════════╝");
+
                 }
             }
             else
             {
-                Console.WriteLine("No hay movimientos por el momento.");
+                Console.WriteLine(" ╔═══════════════════════════════════════╗");
+                Console.WriteLine(" ║   NO HAY MOVIMIENTOS POR EL MOMENTO   ║");
+                Console.WriteLine(" ╚═══════════════════════════════════════╝");
             }
         }
 
         // Consultar saldo
         private static void ConsultarSaldo(Usuario usuario)
         {
-            Console.WriteLine($"Actualmente tienes {usuario.Saldo:C}");
+            Console.WriteLine(" ╔═════════════════════════════════════════╗");
+            Console.WriteLine($" ║  Actualmente tienes {usuario.Saldo:C}   ");
+            Console.WriteLine(" ╚═════════════════════════════════════════╝");
         }
 
         // Consignar a otra cuenta
         private static void Consignar(Usuario usuario)
         {
-            Console.Write("Cantidad de dinero a enviar: ");
+            Console.WriteLine(" ╔═══════════════════════════════════════╗");
+            Console.WriteLine(" ║     CANTIDAD DE DINERO A ENVIAR       ║");
+            Console.WriteLine(" ╚═══════════════════════════════════════╝");
+            Console.Write(" ═>");
             int dinero = Convert.ToInt32(Console.ReadLine());
 
-            Console.Write("Número de cuenta destino: ");
+            Console.WriteLine(" ╔═══════════════════════════════════════╗");
+            Console.WriteLine(" ║    CUENTA DESTINO (Cuenta destino)    ║");
+            Console.WriteLine(" ╚═══════════════════════════════════════╝");
+            Console.Write(" ═>");
             string numeroCuenta = Console.ReadLine();
 
             var usuarioReceptor = usuarios.FirstOrDefault(u => u.NumeroCuenta == numeroCuenta);
 
             if (usuarioReceptor != null)
             {
-                Console.WriteLine($"Vas a transferir {dinero:C} a la cuenta {numeroCuenta}. ¿Estás seguro? (1. Sí, 2. No)");
+                Console.WriteLine(" ╔═══════════════════════════════════════════════════════════════╗");
+                Console.WriteLine($" ║  Vas a transferir {dinero:C} a la cuenta {numeroCuenta}     ");
+                Console.WriteLine(" ║═══════════════════════════════════════════════════════════════║");
+                Console.WriteLine(" ║                        ¿Estas seguro?                         ║");
+                Console.WriteLine(" ║                            1. Si                              ║");
+                Console.WriteLine(" ║                            2. No                              ║");
+                Console.WriteLine(" ╚═══════════════════════════════════════════════════════════════╝");
+                Console.Write(" ═>");
                 int opcion = Convert.ToInt32(Console.ReadLine());
 
                 if (opcion == 1)
@@ -245,50 +339,65 @@ namespace CajeroHDP1
                     if (usuario.Saldo >= dinero)
                     {
                         usuario.Saldo -= dinero;
-                        usuario.Historial.Add($"{DateTime.Today} Transferencia a la cuenta {numeroCuenta} de -{dinero:C}");
+                        usuario.Historial.Add($"{localTime} Transferencia a la cuenta {numeroCuenta} de -{dinero:C}");
 
                         usuarioReceptor.Saldo += dinero;
-                        usuarioReceptor.Historial.Add($"{DateTime.Today} Consignación de +{dinero:C}");
+                        usuarioReceptor.Historial.Add($"{localTime} Consignación de +{dinero:C}");
 
-                        Console.WriteLine("La transferencia se realizó con éxito.");
+                        Console.WriteLine(" ╔══════════════════════════════════════════╗");
+                        Console.WriteLine(" ║  La transferencia se realizo con exito   ║");
+                        Console.WriteLine(" ╚══════════════════════════════════════════╝");
 
                         // Guardar cambios en el archivo JSON
                         GuardarUsuarios();
                     }
                     else
                     {
-                        Console.WriteLine($"Saldo insuficiente. Tu saldo es {usuario.Saldo:C}");
+                        Console.WriteLine(" ╔═════════════════════════════════════════════════════╗");
+                        Console.WriteLine($" ║  Saldo insuficiente, Tu saldo es {usuario.Saldo}    ");
+                        Console.WriteLine(" ╚═════════════════════════════════════════════════════╝");
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Cancelando transacción...");
+                    Console.WriteLine(" ╔════════════════════════════╗");
+                    Console.WriteLine(" ║  Cancelando transacción... ║");
+                    Console.WriteLine(" ╚════════════════════════════╝");
                 }
             }
             else
             {
-                Console.WriteLine("La cuenta de destino no existe.");
+                Console.WriteLine(" ╔══════════════════════════════════╗");
+                Console.WriteLine(" ║  La cuenta de destino no existe. ║");
+                Console.WriteLine(" ╚══════════════════════════════════╝");
             }
         }
 
         // Retirar dinero
         private static void Retirar(Usuario usuario)
         {
-            Console.Write("Valor a retirar: ");
+            Console.WriteLine(" ╔══════════════════════╗");
+            Console.WriteLine(" ║    VALOR A RETIRAR   ║");
+            Console.WriteLine(" ╚══════════════════════╝");
+            Console.Write(" ═>");
             int valorRetirar = Convert.ToInt32(Console.ReadLine());
 
             if (usuario.Saldo >= valorRetirar)
             {
                 usuario.Saldo -= valorRetirar;
-                usuario.Historial.Add($"{DateTime.Today} Retiro de -{valorRetirar:C}");
-                Console.WriteLine($"Saldo actual: {usuario.Saldo:C}");
+                usuario.Historial.Add($"{localTime} Retiro de -{valorRetirar:C}");
+                Console.WriteLine(" ╔═════════════════════════════════╗");
+                Console.WriteLine($" ║ Saldo actual: {usuario.Saldo:C} ");
+                Console.WriteLine(" ╚═════════════════════════════════╝");
 
                 // Guardar cambios en el archivo JSON
                 GuardarUsuarios();
             }
             else
             {
-                Console.WriteLine($"Saldo insuficiente. Tu saldo es {usuario.Saldo:C}");
+                Console.WriteLine("  ╔═════════════════════════════════════════════════════╗");
+                Console.WriteLine($"  ║  Saldo insuficiente, Tu saldo es {usuario.Saldo}    ");
+                Console.WriteLine("  ╚═════════════════════════════════════════════════════╝");
             }
         }
     }

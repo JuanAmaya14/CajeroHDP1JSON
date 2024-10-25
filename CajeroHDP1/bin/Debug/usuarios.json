@@ -22,9 +22,10 @@
     "Nombre": "junito",
     "Correo": "a@gmail.com",
     "Clave": "123",
-    "Saldo": 6,
+    "Saldo": 100006,
     "Historial": [
-      "23/10/2024 12:00:00 a. m. Consignación de +$ 5,00"
+      "23/10/2024 12:00:00 a. m. Consignación de +$ 5,00",
+      "25/10/2024 4:25:02 p. m. Consignación de +$ 100.000,00"
     ],
     "NumeroCuenta": "01004343036"
   },
@@ -39,5 +40,32 @@
       "23/10/2024 12:00:00 a. m. Transferencia a la cuenta 01004343036 de -$ 5,00"
     ],
     "NumeroCuenta": "12526154183"
+  },
+  {
+    "Identificacion": 5678910,
+    "Nombre": "Carlos",
+    "Correo": "Carlos@gmail.com",
+    "Clave": "12345",
+    "Saldo": 0,
+    "Historial": [
+      "25/10/2024 4:22:46 p. m. Retiro de -$ 1.000,00",
+      "25/10/2024 4:25:02 p. m. Transferencia a la cuenta 01004343036 de -$ 100.000,00",
+      "25/10/2024 4:25:02 p. m. Retiro de -$ 499.899.000,00",
+      "25/10/2024 4:40:45 p. m. Consignación de +$ 200.000,00",
+      "25/10/2024 4:40:45 p. m. Retiro de -$ 200.000,00"
+    ],
+    "NumeroCuenta": "12106267104"
+  },
+  {
+    "Identificacion": 1234456,
+    "Nombre": "Lu",
+    "Correo": "Lu@gmail",
+    "Clave": "123",
+    "Saldo": 300000,
+    "Historial": [
+      "25/10/2024 4:40:45 p. m. Transferencia a la cuenta 12106267104 de -$ 200.000,00",
+      "25/10/2024 4:40:45 p. m. Retiro de -$ 500.000,00"
+    ],
+    "NumeroCuenta": "32754538822"
   }
 ]

@@ -5,7 +5,6 @@ namespace CajeroHDP1
 {
     internal class Usuario
     {
-
         private int identificacion;
         private string nombre;
         private string correo;
@@ -14,23 +13,24 @@ namespace CajeroHDP1
         private List<string> historial = new List<string>();
         private string numeroCuenta;
 
-        public Usuario(int identificacion, string nombre, string correo, string clave, long saldo)
+        // Constructor con número de cuenta opcional
+        public Usuario(int identificacion, string nombre, string correo, string clave, long saldo, string numeroCuenta = null)
         {
             this.Identificacion = identificacion;
             this.Nombre = nombre;
             this.Correo = correo;
             this.Clave = clave;
             this.Saldo = saldo;
-            this.numeroCuenta = GenerarCuenta();
+            this.numeroCuenta = numeroCuenta ?? GenerarCuenta();
         }
 
         private string GenerarCuenta()
         {
             var random = new Random();
             string numeroCuenta = "";
-            for (int i = 0; i <= 10; i++)
+            for (int i = 0; i < 11; i++)
             {
-                numeroCuenta+= random.Next(0, 9);
+                numeroCuenta += random.Next(0, 10);
             }
             return numeroCuenta;
         }
@@ -41,6 +41,7 @@ namespace CajeroHDP1
         public string Clave { get => clave; set => clave = value; }
         public long Saldo { get => saldo; set => saldo = value; }
         public List<string> Historial { get => historial; set => historial = value; }
-        public string NumeroCuenta { get => numeroCuenta;}
+        public string NumeroCuenta { get => numeroCuenta; set => numeroCuenta = value; }
     }
+    
 }
